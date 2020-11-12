@@ -1,0 +1,30 @@
+## Suppress mime type detection in browsers for unknown types
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# <Files ~ "^.*\.([Hh][Tt][Aa])">
+#   order allow, deny
+#   deny from all
+# </Files>
+
+<IfModule mod_autoindex.c>
+  Options +Indexes +FollowSymLinks
+  IndexIgnore ".." "_meta"
+  IndexOptions FancyIndexing
+  IndexOptions VersionSort
+  IndexOptions FoldersFirst
+  IndexOptions HTMLTable
+  # IndexOptions IconsAreLinks
+  IndexOptions IgnoreCase
+  IndexOptions SuppressDescription
+  IndexOptions SuppressIcon
+  IndexOptions SuppressRules
+  IndexOptions SuppressHTMLPreamble
+  # IndexOptions IconHeight=32
+  # IndexOptions IconWidth=32
+  IndexOptions NameWidth=*
+  IndexOrderDefault Descending Name
+  HeaderName /path/to/_meta/_header.html
+  ReadmeName /path/to/_meta/_footer.html
+</IfModule>

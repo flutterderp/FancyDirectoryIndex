@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <link href="/path/to/_meta/favicon.svg" rel="shortcut icon" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+      * { margin: 0; padding: 0; }
+      body { background: #fefefe; color: #0a0a0a; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 100%; line-height: normal; }
+      a { text-decoration: none; }
+      a:focus, a:hover { text-decoration: underline; }
+
+      h1, h2 { font-family: 'Open Sans Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; }
+      h1 {  margin: 0 0 16px; }
+      h2 { margin: 16px 0; text-transform: uppercase; }
+      img, picture { display: inline-block; }
+      main { margin: 14px auto; width: 98%; }
+
+      .logo { margin: 18px 0; }
+
+      table { border: 0; border-collapse: collapse; max-width: 100%; }
+      td, th { padding: 4px 12px; }
+      tr:nth-child(2) td { padding-top: 8px; }
+      th { border-bottom: 1px solid #0a0a0a; font-family: 'Open Sans Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 300; text-align: left; text-transform: uppercase; }
+    </style>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        let pageTitle = document.getElementById('pageTitle'),
+            path      = window.location.pathname
+
+        titleText           = 'Index of: '+path.replace(/(\/path\/to\/)(?=.+$)/gi, '../')
+        pageTitle.innerText = titleText
+        document.title      = titleText
+      })
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <picture>
+          <source srcset="/path/to/_meta/logo.png 1x, /path/to/_meta/logo@2x.png 2x">
+          <img src="/path/to/_meta/logo.svg" alt="image alt text" width="264">
+        </picture>
+      </div>
+
+      <h1 id="pageTitle"></h1>
+      <h2>A Subtitle</h2>
