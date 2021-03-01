@@ -8,6 +8,14 @@
 #   deny from all
 # </Files>
 
+## Optionally, only allow certain IPs to view the main directory listing
+# https://stackoverflow.com/a/36024233/1896325
+RewriteEngine on
+RewriteCond %{REQUEST_URI} ^(\/directory-name\/)$
+RewriteCond expr "! -R '127.0.0.1'"
+RewriteCond expr "! -R '::1'"
+RewriteRule ^(.*)$ / [L,R=302]
+
 <IfModule mod_autoindex.c>
   Options +Indexes +FollowSymLinks
   IndexIgnore ".." "_meta"
